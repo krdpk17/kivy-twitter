@@ -1,0 +1,3 @@
+[submodule "neo4jintf"]
+	path = neo4jintf
+	url = https://github.com/krdpk17/twitter-neo4j.git

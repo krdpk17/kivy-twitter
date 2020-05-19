@@ -1,0 +1,36 @@
+<MyGrid1>:
+    cred_file: cred_file
+    input_file: input_file
+
+    GridLayout:
+        cols: 1
+        size: root.width - 300, root.height - 300
+        pos: 150, 200
+        Label:
+            text: "Twitter Additive"
+            font_size: 30
+        GridLayout:
+            cols: 2
+
+            Label:
+                text: "CREDENTIALS FILE PATH : "
+            TextInput:
+                id: cred_file
+            Label:
+                text: "INPUT FILE PATH : "
+            TextInput:
+                id: input_file
+
+
+        Button:
+            text: "Submit"
+            size_hint: .30, .30
+            pos: 200, 200
+            on_press: root.bt()
+
+<P>:
+    Label:
+        text: "Download completed"
+
+    Button:
+        text: "CLOSE"
