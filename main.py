@@ -1,36 +1,24 @@
 from kivy.app import App
-print("DKKK")
 from kivy.properties import ObjectProperty
 from kivy.uix.widget import Widget
-from features import fetcher_query
+import fetcher_query_intf as fetcher_query
 from kivy.uix.popup import Popup
 from kivy.uix.button import Button
-print("DKKKK2")
-fetcher_query.test_query_insert()
-print("DKKKK3")
 
 class MyGrid1(Widget):
     cred_file = ObjectProperty(None)
-    input_file = ObjectProperty(None)
     resp = None
 
     def bt(self):
-        if self.cred_file.text == "" or self.input_file.text == "":
+        if self.cred_file.text == "":
             print("found empty")
             empty_input()
             self.reset()
         else:
-            try:
-                fetcher_query.add_new_query()
-                print("DKKKK2")
-                show_popup()
-
-            except:
-                error_popup()
-                self.reset()
-
-            MyGrid1.resp = dm.fetch(self.cred_file.text, self.input_file.text)
-            if MyGrid1.resp == "error":
+            print("DKKKK3")
+            MyGrid1.resp = fetcher_query.test_query_insert(self.cred_file.text)
+            print("DKKKK3_")
+            if not MyGrid1.resp:
                 auth_error()
                 self.reset()
 
@@ -41,7 +29,6 @@ class MyGrid1(Widget):
 
     def reset(self):
         self.cred_file.text = ""
-        self.input_file.text = ""
 
 
 class P():
@@ -59,7 +46,7 @@ def auth_error():
 
 def show_popup():
     content = Button(text='Close')
-    popup = Popup(title="Download Completed", content=content, auto_dismiss=False,
+    popup = Popup(title="Success", content=content, auto_dismiss=False,
                   size_hint=(None, None), size=(300, 200))
     popup.open()
 
