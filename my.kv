@@ -1,12 +1,13 @@
 <MyGrid1>:
     cred_file: cred_file
 
-    GridLayout:
+    BoxLayout:
         cols: 1
         size: root.width - 300, root.height - 300
         pos: 150, 200
+        orientation: 'vertical'
         Label:
-            text: "Twitter Additive"
+            text: "Twitter Demo"
             font_size: 30
         GridLayout:
             cols: 2
@@ -17,7 +18,7 @@
                 id: cred_file
 
         Button:
-            text: "Submit"
+            text: "Save"
             size_hint: .30, .30
             pos: 200, 200
             on_press: root.bt()
